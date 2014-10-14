@@ -1,3 +1,3 @@
-SELECT empno, ename, LENGTH(yomi)
+SELECT empno, ename, yomi,LENGTH(yomi)
 FROM employees
 /

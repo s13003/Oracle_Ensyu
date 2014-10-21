@@ -1,3 +1,4 @@
-SELECT ename, sal, comm, COALESCE(sal + comm, 0, sal + comm)
+SELECT ename, sal, comm,
+COALESCE(sal + comm, comm)
 FROM employees
 /

@@ -1,3 +1,4 @@
-SELECT ename, sal, comm, sal + NVL(comm, 0)
+SELECT ename, sal, comm,
+COALESCE(sal + comm, comm, sal)
 FROM employees
 /

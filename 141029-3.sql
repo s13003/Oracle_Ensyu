@@ -4,8 +4,8 @@ WHERE sal >=
 (SELECT sal
 FROM employees
 WHERE empno = 1003)
-AND empno =
-(SELECT empno
+AND deptno =
+(SELECT deptno
 FROM departments
 WHERE dname = '営業')
 /

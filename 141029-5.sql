@@ -1,8 +1,11 @@
-SELECT e.empno, e.ename, m.ename 上司
-FROM employees e JOIN employees m
-ON(e.mgr = m.empno)
-WHERE e.empno IN(
-(SELECT m.mgr
-FROM employees m
-WHERE ename IN('山田', '伊藤')))
+SELECT empno, ename, sal, deptno
+FROM employees
+WHERE sal >=
+(SELECT sal
+FROM employees
+WHERE empno = 1003)
+AND deptno =
+(SELECT deptno
+FROM departments
+WHERE dname = '営業')
 /

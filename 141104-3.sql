@@ -1,7 +1,7 @@
 INSERT INTO employees(empno, ename, hiredate)
 VALUES(&&empno, '&ename', '&hiredate')
 /
-SELECT &empno
+SELECT *
 FROM employees
 /
 DELETE

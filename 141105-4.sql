@@ -14,7 +14,6 @@ WHERE ename = '加藤')
 /
 SELECT *
 FROM emp_copy
-WHERE ename = '加藤'
 /
 ROLLBACK
 /

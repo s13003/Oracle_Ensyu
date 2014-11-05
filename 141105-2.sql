@@ -6,3 +6,8 @@ WHERE empno = 1012
 SELECT *
 FROM emp_copy
 /
+ROLLBACK
+/
+SELECT *
+FROM emp_copy
+/

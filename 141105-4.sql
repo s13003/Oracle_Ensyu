@@ -13,10 +13,11 @@ FROM employees
 WHERE ename = '加藤')
 /
 SELECT *
-FROM employees
+FROM emp_copy
 WHERE ename = '加藤'
 /
 ROLLBACK
 /
 SELECT *
-FROM employees;
+FROM emp_copy;
+/

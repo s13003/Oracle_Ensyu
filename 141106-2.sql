@@ -6,6 +6,9 @@ SAVEPOINT save
 INSERT INTO dept_copy(deptno, dname, loc)
 VALUES(80, '製造', 'うるま')
 /
+SELECT *
+FROM dept_copy
+/
 ROLLBACK TO save
 /
 SELECT *

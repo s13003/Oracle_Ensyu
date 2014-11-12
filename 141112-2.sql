@@ -16,3 +16,7 @@ VALUES(1030, '山口', 200000, null)
 SELECT *
 FROM v_emp
 /
+ROLLBACK
+/
+DROP VIEW v_emp
+/

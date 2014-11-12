@@ -1,5 +1,5 @@
 CREATE VIEW v_emp
-AS empno, ename, sal, deptno
+AS SELECT empno, ename, sal, deptno
 FROM emp2
 /
 DELETE

@@ -1,0 +1,16 @@
+CREATE SEQUENCE s_ord
+/
+SELECT s_ord.NEXTVAL
+FROM dual
+/
+ALTER SEQUENCE s_ord
+INCREMENT BY 10
+/
+SELECT s_ord.NEXTVAL
+FROM dual
+/
+DROP SEQUENCE s_ord
+/
+SELECT s_ord.NEXTVAL
+FROM dual
+/

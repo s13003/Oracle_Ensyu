@@ -1,6 +1,8 @@
 import java.sql.*;
+import java.util.Scanner;
 
 public class Select1 {
+  Scanner stdIn = new Scanner(System.in);
   private String _user = "s13003";
   private String _pass = "password";
   private String _host = "172.16.40.4";
@@ -8,6 +10,7 @@ public class Select1 {
 
   public static void main(String[] args){
 
+      System.out.print("社員番号を入力してください:");
     Select1 sample = new Select1();
     try {
       sample.select1();
@@ -29,10 +32,12 @@ public class Select1 {
 
       st = conn.createStatement();
 
-      ps = conn.prepareStatement("SELECT e.empno, e.ename, e.job, m.ename, d.dname, d.loc FROM employees e LEFT OUTER JOIN employees m ON e.mgr = m.empno JOIN departments d ON e.deptno = d.deptno");
+      ps = conn.prepareStatement("SELECT e.empno, e.ename, e.job, m.ename, d.dname, d.loc, e.sal, s.grade FROM employees e LEFT JOIN employees m ON e.mgr = m.empno JOIN departments d ON e.deptno = d.deptno JOIN salgrades s ON e.sal BETWEEN s.losal AND s.hisal WHERE e.empno = ?");
 
+      int empno = stdIn.nextInt();
+      ps.setInt(1, empno);
       rs = ps.executeQuery();
-
+      
       while(rs.next()){
         String e_empno = rs.getString(1);
         String e_ename = rs.getString(2);
@@ -40,8 +45,11 @@ public class Select1 {
         String m_ename = rs.getString(4);
         String d_dname = rs.getString(5);
         String d_loc = rs.getString(6);
+        String e_sal = rs.getString(7);
+        String s_grade = rs.getString(8);
 
-        System.out.printf("社員番号： %s\t社員名： %s\t職種:  %s\t上司の名前: %s\t部署名: %s\t場所 %s\n", e_empno, e_ename, e_job, m_ename, d_dname, d_loc);
+       
+        System.out.printf("社員番号： %s\t社員名： %s\t職種:  %s\t上司の名前: %s\t部署名: %s\t場所 %s\t給与 %s\t給与の等級  %s\n", e_empno, e_ename, e_job, m_ename, d_dname, d_loc, e_sal, s_grade);
       }
     }catch(ClassNotFoundException e){
       throw e;
